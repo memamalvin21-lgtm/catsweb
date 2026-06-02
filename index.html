@@ -1,0 +1,128 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Cat Paradise 🐾</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+        }
+
+        body {
+            background-color: #f9f5f0;
+            color: #4a3f35;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            min-height: 100vh;
+            padding: 20px;
+        }
+
+        header {
+            text-align: center;
+            margin-bottom: 30px;
+        }
+
+        h1 {
+            color: #ff6b6b;
+            font-size: 2.5rem;
+            margin-bottom: 10px;
+        }
+
+        .container {
+            max-width: 600px;
+            background: white;
+            padding: 30px;
+            border-radius: 15px;
+            box-shadow: 0 8px 24px rgba(0,0,0,0.05);
+            text-align: center;
+        }
+
+        .cat-img {
+            max-width: 100%;
+            height: 300px;
+            object-fit: cover;
+            border-radius: 10px;
+            margin-bottom: 20px;
+            box-shadow: 0 4px 12px rgba(0,0,0,0.1);
+        }
+
+        .fact-box {
+            font-size: 1.1rem;
+            line-height: 1.6;
+            margin-bottom: 25px;
+            min-height: 80px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-style: italic;
+            color: #6d5c4c;
+        }
+
+        button {
+            background-color: #ff6b6b;
+            color: white;
+            border: none;
+            padding: 12px 28px;
+            font-size: 1rem;
+            font-weight: bold;
+            border-radius: 25px;
+            cursor: pointer;
+            transition: background 0.2s, transform 0.1s;
+        }
+
+        button:hover {
+            background-color: #ff5252;
+            transform: translateY(-2px);
+        }
+
+        button:active {
+            transform: translateY(0);
+        }
+    </style>
+</head>
+<body>
+
+    <header>
+        <h1>Welcome to Cat Paradise 🐾</h1>
+        <p>Your daily dose of feline joy!</p>
+    </header>
+
+    <div class="container">
+        <img class="cat-img" src="https://images.unsplash.com/photo-1514888286974-6c03e2ca1dba?w=600" alt="Cute Cat">
+        
+        <div class="fact-box" id="fact-text">
+            "Click the button below to fetch an awesome, random cat fact!"
+        </div>
+
+        <button id="fact-btn">Next Cat Fact ✨</button>
+    </div>
+
+    <script>
+        const factText = document.getElementById('fact-text');
+        const factBtn = document.getElementById('fact-btn');
+
+        // Array of fun cat facts
+        const catFacts = [
+            "Cats sleep for 70% of their lives—that's about 13 to 14 hours a day!",
+            "A cat's purr vibrates at a frequency that can actually stimulate bone and tissue healing.",
+            "The first cat in space was a French cat named Félicette in 1963. She survived the trip!",
+            "Cats can make over 100 different vocal sounds, while dogs can only make about 10.",
+            "A cat's nose print is completely unique, much like a human fingerprint.",
+            "Cats have 32 muscles in each ear, allowing them to rotate them 180 degrees."
+        ];
+
+        function getRandomFact() {
+            const randomIndex = Math.floor(Math.random() * catFacts.length);
+            factText.textContent = `"${catFacts[randomIndex]}"`;
+        }
+
+        factBtn.addEventListener('click', getRandomFact);
+    </script>
+
+</body>
+</html>
